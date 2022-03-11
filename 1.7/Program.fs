@@ -24,11 +24,11 @@ let prost chislo func init =
     let rec schet chislo func init dannoe = 
         if(dannoe <=1) then init
         else
-            let new_init = if nod chislo dannoe = 1 then init else func dannoe init
+            let new_init = if nod chislo dannoe = 1 then func dannoe init else init
             let new_dannoe = dannoe-1
             schet chislo func new_init new_dannoe
     schet chislo func init chislo
-
+//сложно
 let prost_proxod x predicate func init =
     let func1 init divider = if predicate divider then func init divider else init
     prost x func1 init
@@ -43,6 +43,6 @@ let main argv =
     Console.WriteLine(nod 21 7)
     Console.WriteLine("Введите число:")
     let x = Console.ReadLine() |> Int32.Parse
-    Console.WriteLine(prost_proxod x (fun a -> a%2 =0) (fun b -> b%) 0)
-    //Console.WriteLine(nod_proxod x (fun a -> a>4) (fun x y -> x+y) 1)
+    Console.WriteLine(prost_proxod x (fun a -> a%2 =0) (fun x y-> x*y) 1)
+    Console.WriteLine(nod_proxod x (fun a -> a>4) (fun x y -> x+y) 1)
     0 
