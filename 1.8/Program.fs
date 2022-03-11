@@ -38,9 +38,16 @@ let nod_proxod x predicate func init =
     let func1 init divider = if predicate divider then func init divider else init
     vse x func1 init
 
+let mutable m = -1
+let rec max x =
+        if(x=0) then m
+        else
+            if((x%10 > m) && (x%3 <> 0)) then m <- x%10
+            max(x/10)
 [<EntryPoint>]
 let main argv =
     Console.WriteLine("Введите число:")
     let x = Console.ReadLine() |> Int32.Parse
     Console.WriteLine(Metod1 x (fun x -> x%2=0) (fun x y-> x+1) 0)
+
     0 
