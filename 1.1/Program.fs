@@ -14,7 +14,7 @@ let language (x:string) =
         | "Ruby" -> "
 Рубинов захотел?"
         | "JavaScript" -> "
-1+1 = 1"
+1+1 = 11"
         | "HTML" -> "
 Ну приехали"
         | "Python" -> "
