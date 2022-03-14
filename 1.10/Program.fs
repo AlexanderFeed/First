@@ -77,9 +77,12 @@ let Metod3 x =
 let main argv =
     //Console.WriteLine("НОД 21 7:")
     //Console.WriteLine(nod 21 7)
+    Console.WriteLine("Введите номер метода:")
+    let met = Console.ReadLine() |> Int32.Parse
     Console.WriteLine("Введите число:")
-    let x = Console.ReadLine() |> Int32.Parse
-    //Console.WriteLine(nod_proxod x (fun a -> a>4) (fun x y -> x+y) 1)
-    //Console.WriteLine(Metod2 x -1)
-    Console.WriteLine(pervoe x)
+    match met with
+    | 1 -> Console.WriteLine(Metod1 (Console.ReadLine() |> Int32.Parse))
+    | 2 -> Console.WriteLine(Metod2 (Console.ReadLine() |> Int32.Parse))
+    | 3 -> Console.WriteLine(Metod3 (Console.ReadLine() |> Int32.Parse))
+    | _ -> Console.WriteLine("Нет такого метода")
     0 
