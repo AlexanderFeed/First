@@ -50,19 +50,28 @@ let rec Metod2 x init =
             else Metod2 (x/10) init
 
 
-let prost3 chislo func init =
-    let rec schet3 chislo func init dannoe = 
+let prost3 chislo init =
+    let rec schet3 chislo init dannoe = 
         if(dannoe <=1) then init
         else
             let new_init = if nod chislo dannoe = 1 then init 
                            else 
                                if (dannoe > init) && ((dannoe % nod chislo dannoe) <>0) then dannoe else init 
             let new_dannoe = dannoe-1
-            schet3 chislo func new_init new_dannoe
-    schet3 chislo func init chislo
+            schet3 chislo new_init new_dannoe
+    schet3 chislo init chislo
 
 let pervoe x =
-    prost3 x (fun a-> a%2 =0) 0 
+    prost3 x 0 
+
+let rec vtoroe x =
+    if x < 5 then x
+    else 
+        if x%10 < 5 then x%10 + vtoroe(x/10)
+        else vtoroe(x/10)
+
+let Metod3 x =
+    pervoe x * vtoroe x
 
 [<EntryPoint>]
 let main argv =

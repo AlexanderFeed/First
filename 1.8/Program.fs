@@ -21,13 +21,14 @@ let vse x func init =
             let new_divider = current_divider - 1
             vse1 x func new_init new_divider
     vse1 x func init x
+
 let prost chislo func init =
     let rec schet chislo func init dannoe = 
         if(dannoe <=1) then init
         else
             let new_init = if nod chislo dannoe = 1 then init 
                            else 
-                               if (dannoe > init) && ((nod chislo dannoe)%dannoe <> 0) then dannoe else init 
+                               if (dannoe > init) && (dannoe % (nod chislo dannoe) <> 0) then dannoe else init 
             let new_dannoe = dannoe-1
             schet chislo func new_init new_dannoe
     schet chislo func init chislo
