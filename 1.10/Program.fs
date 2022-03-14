@@ -77,6 +77,7 @@ let Metod3 x =
 let main argv =
     //Console.WriteLine("НОД 21 7:")
     //Console.WriteLine(nod 21 7)
+    //1
     Console.WriteLine("Введите номер метода:")
     let met = Console.ReadLine() |> Int32.Parse
     Console.WriteLine("Введите число:")
@@ -84,5 +85,14 @@ let main argv =
     | 1 -> Console.WriteLine(Metod1 (Console.ReadLine() |> Int32.Parse))
     | 2 -> Console.WriteLine(Metod2 (Console.ReadLine() |> Int32.Parse))
     | 3 -> Console.WriteLine(Metod3 (Console.ReadLine() |> Int32.Parse))
+    | _ -> Console.WriteLine("Нет такого метода")
+    //2
+    Console.WriteLine("Введите номер метода:")
+    let met = Console.ReadLine() |> Int32.Parse
+    Console.WriteLine("Введите число:")
+    match met with
+    | 1 -> (Console.ReadLine >> Int32.Parse >> Metod1 >> Console.WriteLine)()
+    | 2 -> (Console.ReadLine >> Int32.Parse >> Metod2 >> Console.WriteLine)()
+    | 3 -> (Console.ReadLine >> Int32.Parse >> Metod3 >> Console.WriteLine)()
     | _ -> Console.WriteLine("Нет такого метода")
     0 
