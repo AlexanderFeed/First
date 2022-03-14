@@ -49,6 +49,21 @@ let rec Metod2 x init =
                                             Metod2 (x/10) new_init
             else Metod2 (x/10) init
 
+
+let prost3 chislo func init =
+    let rec schet3 chislo func init dannoe = 
+        if(dannoe <=1) then init
+        else
+            let new_init = if nod chislo dannoe = 1 then init 
+                           else 
+                               if (dannoe > init) && ((dannoe % nod chislo dannoe) <>0) then dannoe else init 
+            let new_dannoe = dannoe-1
+            schet3 chislo func new_init new_dannoe
+    schet3 chislo func init chislo
+
+let pervoe x =
+    prost3 x (fun a-> a%2 =0) 0 
+
 [<EntryPoint>]
 let main argv =
     //Console.WriteLine("НОД 21 7:")
@@ -56,5 +71,6 @@ let main argv =
     Console.WriteLine("Введите число:")
     let x = Console.ReadLine() |> Int32.Parse
     //Console.WriteLine(nod_proxod x (fun a -> a>4) (fun x y -> x+y) 1)
-    Console.WriteLine(Metod2 x -1)
+    //Console.WriteLine(Metod2 x -1)
+    Console.WriteLine(pervoe x)
     0 
