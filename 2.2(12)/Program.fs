@@ -31,23 +31,39 @@ let pos list m =
                 pos1 t new_m new_min_num new_num
     pos1 list m m 1
 
-let vivod list p = 
-    let rec vivod1 list p pop =
+let posm list m =
+    let rec posm1 list m num =
         match list with
-        [] -> []
-        |(h:int)::t ->
-            if pop< p then Console.WriteLine(h)
-            else Console.WriteLine(' ')
+        |[] -> num
+        |h::t->
+            if (h<m) then num
+            else 
+                let new_num = num+1 
+                let new_m = h 
+                posm1 t new_m new_num
+    posm1 list m 0
+
+let vivod list p =
+    let rec vivod1 list p pop new_list = 
+        match list with 
+        | [] -> new_list
+        | h::t ->
+            if(pop<=p) then  new_list @ [h] 
+            else new_list @ [] 
             let new_pop = pop+1
-            vivod1 t p new_pop
-    vivod1 list p 1
+            vivod1 t p new_pop new_list
+    vivod1 list p 1 []
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Convert.ToInt32
     let list = readList n
-    let min = List.head list
-    let po = pos list min
-    Console.WriteLine(po)
-    //vivod list po
+    let first = List.head list
+    let pomi = pos list first
+    let poma = posm list first
+    Console.WriteLine(poma)
+    Console.WriteLine(pomi)
+    //let new_list = if(poma<pomi) then vivod list poma
+    //                else vivod list pomi
+    //Console.WriteLine(new_list)
     
     0 // 
