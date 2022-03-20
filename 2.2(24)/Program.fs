@@ -33,15 +33,18 @@ let rec del list mi new_list =
             else
                 let new_new_list = new_list@[h]
                 del t mi new_new_list
+                
+let f = function 
+|h::t -> h
 
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Int32.Parse
     let list = readList n 
-    let first = List.head list
+    let first = f list
     let ma1 = m list first
     let new_list = del list ma1 []
-    let new_first = List.head new_list
+    let new_first = f new_list
     let ma2 = m new_list new_first
     Console.WriteLine(ma1)
     Console.WriteLine(ma2)
