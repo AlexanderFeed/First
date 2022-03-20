@@ -25,17 +25,23 @@ let rec listok new_list h t =
     else 
         new_list
 
-
+let take = function
+    |[] -> 0
+    |h::b::[] -> b
+    |h::[]-> 0
+    |h::b::t -> b
 let rec perebor list new_list = 
     match list with
     |[] ->new_list
-    |a::b::t ->
-            
+    |a::t ->
+            let b = take list
             if(b-a <>1) then 
                             let new_new_list = listok new_list a (b-1)
                             perebor t new_new_list
             else perebor t new_list
 
+//let zapolnenie list n =
+//    if(n%3 =)
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Int32.Parse
