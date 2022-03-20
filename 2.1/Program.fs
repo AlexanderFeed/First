@@ -29,7 +29,7 @@ let proc list func =
         | [] -> new_list
         | a::b::c::t ->
             let three = func a b c 
-            let new_new_list = List.append new_list [three]
+            let new_new_list = new_list @ [three]
             let listik = if t<>[] then t.Tail else []
             proc1 listik func new_new_list
     proc1 list func [] /////////?
