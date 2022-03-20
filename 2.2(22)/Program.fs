@@ -36,11 +36,13 @@ let poisk list a b mal =
                     poisk1 t a b mal new_ind kolvo
     poisk1 list a b mal 1 0                     
 
+let f = function 
+|h::t -> h
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Convert.ToInt32
     let list = readList n
-    let first = List.head list
+    let first = f list
     let mal = m list first
     Console.WriteLine(poisk list 1 5 mal)
     0 // return an integer exit code
