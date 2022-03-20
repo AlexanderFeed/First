@@ -86,11 +86,13 @@ let vivod3 list p =
                 vivod31 t p new_pop (new_list @ [])
     vivod31 list p 1 []
 
+let f = function 
+|h::t -> h
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Convert.ToInt32
     let list = readList n
-    let first = List.head list
+    let first = f list
     let pomi = pos list first
     let poma = posm list first
     let new_list = if(poma<pomi) then vivod list poma
