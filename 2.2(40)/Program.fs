@@ -24,11 +24,14 @@ let rec minchet list mi func =
                                 minchet t new_mi func
             else
                 minchet t mi func
+
+let f = function 
+    |h::t -> h
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Int32.Parse
     let list = readlist n
-    let first = List.head list
+    let first = f list
     let a = minchet list first (fun mi h -> h<mi && h%2=0)
     if(a%2=0) then Console.WriteLine(a)
     else Console.WriteLine("Нет четных")
