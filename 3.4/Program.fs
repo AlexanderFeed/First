@@ -52,18 +52,23 @@ let metod3 str =
         
 [<EntryPoint>]
 let main argv =
+    Console.WriteLine("Введите строку.")
     let str = Console.ReadLine()
-    //let str1 = str.[0..(((String.length str)/2)-1)]
-    //if String.length str%2 =0 then 
-    //                                let str2 = str.[(((String.length str)/2))..(String.length str)-1]
-    //                                Console.WriteLine(prov str1 str2)
-    // else 
-    //    let str2 = str.[(((String.length str)/2)+1)..(String.length str)-1]
-    //    Console.WriteLine(prov str1 str2)   
-
-
-    //Console.WriteLine(probel str)
-    
-
-    Console.WriteLine(metod3 str)
+    Console.WriteLine("Какой метод юзаем?")
+    let a = Console.ReadLine() |> Int32.Parse
+    match a with
+    |1 ->
+         let str1 = str.[0..(((String.length str)/2)-1)]
+         if String.length str%2 =0 then 
+                                         let str2 = str.[(((String.length str)/2))..(String.length str)-1]
+                                         Console.WriteLine(prov str1 str2)
+          else 
+             let str2 = str.[(((String.length str)/2)+1)..(String.length str)-1]
+             Console.WriteLine(prov str1 str2) 
+    |2 -> Console.WriteLine(probel str)
+    |3 ->
+            Console.WriteLine(metod3 str)
+    |_ -> Console.WriteLine("Нет такого метода")
+            
+            
     0 // return an integer exit code
