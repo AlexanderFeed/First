@@ -30,15 +30,18 @@ let take = function
     |h::b::[] -> b
     |h::[]-> 0
     |h::b::t -> b
-let rec perebor list new_list = 
-    match list with
-    |[] ->new_list
-    |a::t ->
-            let b = take list
-            if(b-a <>1) then 
-                            let new_new_list = listok new_list a (b-1)
-                            perebor t new_new_list
-            else perebor t new_list
+
+let perebor list =
+    let rec perebor1 list new_list = 
+        match list with
+        |[] ->new_list
+        |a::t ->
+                let b = take list
+                if(b-a <>1) then 
+                                let new_new_list = listok new_list a (b-1)
+                                perebor1 t new_new_list
+                else perebor1 t new_list
+    perebor1 list []
 
 //let zapolnenie list n =
 //    if(n%3 =)
@@ -47,5 +50,5 @@ let main argv =
     let n = Console.ReadLine() |> Int32.Parse
     let list = readList n
     let list = Set.toList(Set.ofList(list))
-    writeList (perebor list [])
+    writeList (perebor list)
     0 // return an integer exit code
