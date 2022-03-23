@@ -43,8 +43,6 @@ let perebor list =
                 else perebor1 t new_list
     perebor1 list []
 
-//let zapolnenie list n =
-//    if(n%3 =)
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Int32.Parse
