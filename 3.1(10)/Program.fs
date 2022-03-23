@@ -16,21 +16,12 @@ let rec writeList = function
     | (head : int)::tail -> 
                    System.Console.WriteLine(head)
                    writeList tail 
-let ravno list2 a =
-    let rec ravno1 list2 a kolvo =
-        match list2 with
-        | [] -> kolvo
-        |h::t ->
-                if(h=a) then 
-                            let new_kolvo = kolvo+1
-                            ravno1 t a new_kolvo
-                else ravno1 t a kolvo
-    ravno1 list2 a 0
+
 let rec perebor list1 list2 kolvo = 
     match list1 with
     | [] -> kolvo
     | h::t ->
-               let new_kolvo = kolvo + ravno list2 h
+               let new_kolvo = kolvo + List.length (List.filter (fun x -> x=h) list2)
                perebor t list2 new_kolvo                
 [<EntryPoint>]
 let main argv =
