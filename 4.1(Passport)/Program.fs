@@ -50,5 +50,5 @@ let main argv =
     Console.Write(pass1.e)
     Console.Write("  ")
     Console.WriteLine(pass2.e)
-    Console.WriteLine("Посмотрели и сравнили")
+    Console.WriteLine("Посмотрели и сравнили") 
     0 // return an integer exit code
