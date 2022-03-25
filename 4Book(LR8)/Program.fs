@@ -1,10 +1,10 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
-
+//часть 1
 type IPrint = interface
-abstract member Print: unit -> unit
-end
+    abstract member Print: unit -> unit
+    end
 
 
 [<AbstractClass>] 
@@ -52,8 +52,22 @@ type serc(r:double) =
     interface IPrint with
         member this.Print() = Console.WriteLine(this.ToString())
 
+type Geom =
+    |Recta of double * double
+    |Squ of double
+    |Cir of double
+
+let calc (fig: Geom) =
+    match fig with
+    | Recta(w,h) -> w * h
+    | Squ(a) -> a*a
+    | Cir(r) -> Math.PI * r * r
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
+    let square = sq(5.5)
+    Console.WriteLine(square)
+
+    let cir = Cir(5.5)
+    Console.WriteLine(calc cir)
     0 // return an integer exit code
