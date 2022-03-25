@@ -11,7 +11,7 @@ let rec readList n =
 
 let rec writeList = function
     [] ->   []
-    | (head : int)::tail -> 
+    | (head:string)::tail -> 
                    System.Console.WriteLine(head)
                    writeList tail 
 
@@ -64,10 +64,20 @@ let troika list =
     troika1 list []
 [<EntryPoint>]
 let main argv =
+    Console.WriteLine("Введите n:")
     let n = Console.ReadLine() |> Int32.Parse
     let list = readList n
-    let number, finish1 = List.unzip (List.sort (List.zip (razn_sr list) list))
-    let number, finish2 = List.unzip (List.sort (List.zip (troika list) list))
-    Console.WriteLine(finish2)
+    Console.WriteLine("Какую сортировку выполняем?")
+    let a = Console.ReadLine() |> Int32.Parse
+    match a with
+    |1 -> 
+          let number, finish1 = List.unzip (List.sort (List.zip (razn_sr list) list))
+          writeList finish1
+    |2 ->
+        let number, finish2 = List.unzip (List.sort (List.zip (troika list) list))
+        writeList finish2
+    |_ ->
+        let finish3 = [("Нет такой сортировки")]
+        writeList finish3
     
     0 
