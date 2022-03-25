@@ -2,7 +2,7 @@
 
 open System
 
-type Pass(vidan:string, data:string, code:string, ser,number, NFS:string, gender:char, birth:string, pl_birth) =
+type Pass(vidan:string, data:string, code:string, ser,number, NFS:string, gender:char, birth:string, pl_birth:string) =
     member this.a = vidan
     member this.b = data
     member this.c = code
@@ -23,13 +23,13 @@ let main argv =
     Console.WriteLine("Код подразделения: ")
     let c = Console.ReadLine()
     Console.WriteLine("Серия: ")
-    let d = Console.ReadLine()
+    let d = Console.ReadLine() |> Int32.Parse
     Console.WriteLine("Номер: ")
-    let e = Console.ReadLine()
+    let e = Console.ReadLine()|> Int32.Parse
     Console.WriteLine("ФИО: ")
     let f = Console.ReadLine()
     Console.WriteLine("Пол: ")
-    let g = Console.ReadLine()
+    let g = Console.ReadLine() |> Char.Parse
     Console.WriteLine("Дата рождения: ")
     let h = Console.ReadLine()
     Console.WriteLine("Место рождения: ")
