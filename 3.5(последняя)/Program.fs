@@ -44,12 +44,30 @@ let razn_sr list =
                 razn_sr1 t new_itog
     razn_sr1 list []
 
+let schet stroka =
+    let rec schet1 (stroka:string) n kolvo =
+        match n with
+        |(1) -> kolvo
+        |_ ->
+             let new_kolvo = if stroka.[n] = stroka.[n-2] then kolvo+1 else kolvo
+             schet1 stroka (n-1) new_kolvo
+    schet1 stroka ((String.length stroka)-1) 0
 
 
+let troika list = 
+    let rec troika1 list itog = 
+        match list with
+        |[] ->itog
+        |h::t ->
+                let new_itog = itog@[(schet h)]
+                troika1 t new_itog
+    troika1 list []
 [<EntryPoint>]
 let main argv =
     let n = Console.ReadLine() |> Int32.Parse
     let list = readList n
-    let number, finish = List.unzip (List.sort (List.zip (razn_sr list) list))
-    Console.WriteLine(finish)
+    let number, finish1 = List.unzip (List.sort (List.zip (razn_sr list) list))
+    let number, finish2 = List.unzip (List.sort (List.zip (troika list) list))
+    Console.WriteLine(finish2)
+    
     0 
