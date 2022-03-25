@@ -71,6 +71,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "3.5(последняя)", "
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "4.1(Passport)", "4.1(Passport)\4.1(Passport).fsproj", "{155D37F1-E08E-41CF-8FE7-7646E619E273}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "4Book(LR8)", "4Book(LR8)\4Book(LR8).fsproj", "{0508AAB5-37D7-48A0-B198-24237A0EF06D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{155D37F1-E08E-41CF-8FE7-7646E619E273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{155D37F1-E08E-41CF-8FE7-7646E619E273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{155D37F1-E08E-41CF-8FE7-7646E619E273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0508AAB5-37D7-48A0-B198-24237A0EF06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0508AAB5-37D7-48A0-B198-24237A0EF06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0508AAB5-37D7-48A0-B198-24237A0EF06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0508AAB5-37D7-48A0-B198-24237A0EF06D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
