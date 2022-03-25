@@ -12,6 +12,7 @@ type Pass(vidan:string, data:string, code:string, ser,number, NFS:string, gender
     member this.g = gender
     member this.h = birth
     member this.i = pl_birth
+    member this.Print() = printfn "%s %s %s %i %i %s %c %s %s"  this.a this.b this.c this.d this.e this.f this.g this.h this.i
 
 
 [<EntryPoint>]
@@ -35,4 +36,5 @@ let main argv =
     Console.WriteLine("Место рождения: ")
     let i = Console.ReadLine()
     let pass1 = Pass(a,b,c,d,e,f,g,h,i)
+    pass1.Print()
     0 // return an integer exit code
