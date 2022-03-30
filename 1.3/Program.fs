@@ -18,12 +18,9 @@ let mul2 x =
     sup x 1
 
 //снизу вверх min
-let mutable m = 10
-let rec min x =
-    if(x=0) then m
-    else
-        if(x%10 < m) then m <- x%10
-        min(x/10)
+let rec min_number x =
+    if x < 10 then x
+    else min (x % 10) (min_number (x / 10))
 //сверху вниз
 let min2 x =
     let rec mup x cur =
@@ -35,12 +32,10 @@ let min2 x =
     mup x 10 
 
 //снизу вверх max
-let mutable a = -1
-let rec max x =
-    if(x=0) then a
-    else
-        if(x%10 > a) then a <- x%10
-        max(x/10)
+let rec max_number x =
+    if x < 10 then x
+    else max (x % 10) (max_number (x / 10))
+
 //сверху вниз
 let max2 x =
     let rec pup x cur =
@@ -57,8 +52,8 @@ let main argv =
     let x = Console.ReadLine() |> Int32.Parse
     Console.WriteLine("Произведение цифр (вверх): {0}", mul x)
     Console.WriteLine("Произведение цифр (вниз): {0}", mul2 x)
-    Console.WriteLine("Минимальная цифра числа (вверх): {0}", min x)
+    Console.WriteLine("Минимальная цифра числа (вверх): {0}", min_number x)
     Console.WriteLine("Минимальная цифра числа (вниз): {0}", min2 x)
-    Console.WriteLine("Максимальная цифра числа (вверх): {0}", max x)
+    Console.WriteLine("Максимальная цифра числа (вверх): {0}", max_number x)
     Console.WriteLine("Максимальная цифра числа (вниз): {0}", max2 x)
     0 
