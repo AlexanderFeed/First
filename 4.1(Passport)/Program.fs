@@ -42,6 +42,11 @@ let rec inputField prompt regex =
         printfn "Непредвиденное исключение: %s" T.Message
         reraise()
 
+[<AbstractClass>]
+type DocColl() =
+    abstract member searchDoc: Pass -> Boolean
+
+
 let vvod = function 
     |_->
             Console.WriteLine("Введите кем выдан: ")
