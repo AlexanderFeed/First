@@ -39,7 +39,8 @@ let nod_proxod x predicate func init =
     vse x func1 init
 
 let Metod1 x =
-    (prost_proxod x (fun a -> a%2 =0) (fun x y-> x+1) 0)
+    let y = 2 in
+    (prost_proxod x (fun a -> a%y =0) (fun x y-> x+1) 0)
 
 let rec Metod2 x init =
     if(x=0) then init

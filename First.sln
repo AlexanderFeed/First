@@ -73,7 +73,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "4.1(Passport)", "4.1(Passpo
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "4Book(LR8)", "4Book(LR8)\4Book(LR8).fsproj", "{0508AAB5-37D7-48A0-B198-24237A0EF06D}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "5Book(LR8)", "5Book(LR8)\5Book(LR8).fsproj", "{41F17A89-D8AA-412F-8396-DFDF2F63222B}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "5Book(LR8)", "5Book(LR8)\5Book(LR8).fsproj", "{41F17A89-D8AA-412F-8396-DFDF2F63222B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "6Book(LR8)", "6Book(LR8)\6Book(LR8).fsproj", "{CE2961DA-9534-4CEB-931A-44C4F44B9BB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -213,6 +215,10 @@ Global
 		{41F17A89-D8AA-412F-8396-DFDF2F63222B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41F17A89-D8AA-412F-8396-DFDF2F63222B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41F17A89-D8AA-412F-8396-DFDF2F63222B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE2961DA-9534-4CEB-931A-44C4F44B9BB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE2961DA-9534-4CEB-931A-44C4F44B9BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE2961DA-9534-4CEB-931A-44C4F44B9BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE2961DA-9534-4CEB-931A-44C4F44B9BB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
