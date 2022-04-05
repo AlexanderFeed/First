@@ -1,8 +1,10 @@
 ﻿// Learn more about F# at http://fsharp.org
 
 open System
+open System.Text.RegularExpressions
+open System.Diagnostics
 
-type Pass(vidan:string, data:string, code:string, ser,number, NFS:string, gender:char, birth:string, pl_birth:string) =
+type Pass(vidan:string, data:string, code:string, ser:int,number:int, NFS:string, gender:char, birth:string, pl_birth:string) =
     member this.a = vidan
     member this.b = data
     member this.c = code
@@ -14,7 +16,31 @@ type Pass(vidan:string, data:string, code:string, ser,number, NFS:string, gender
     member this.i = pl_birth
     member this.Print() = printfn "%s %s %s %i %i %s %c %s %s"  this.a this.b this.c this.d this.e this.f this.g this.h this.i 
 
+    interface IComparable with
+        member this.CompareTo(obj: obj): int = 
+            match obj with
+            | :? Pass as pass2 -> if this.d = pass2.d then this.e.CompareTo pass2.e else this.d.CompareTo pass2.d
+            | _ -> invalidArg "obj" "Cannot compare values of different types" 
 
+
+let assertRegex str regex =
+    let r = Regex(regex)
+    if not (r.IsMatch str) then
+        invalidArg str $"Не поформату: {regex}"
+
+let rec inputField prompt regex =
+    printf $"{prompt}: "
+    let input = Console.ReadLine()
+    try
+        assertRegex input regex
+        input
+    with
+    | :? System.ArgumentException as T ->
+        printfn "Ошибка: %s" T.Message
+        inputField prompt regex
+    | T ->
+        printfn "Непредвиденное исключение: %s" T.Message
+        reraise()
 
 let vvod = function 
     |_->
@@ -50,5 +76,4 @@ let main argv =
     Console.Write(pass1.e)
     Console.Write("  ")
     Console.WriteLine(pass2.e)
-    Console.WriteLine("Посмотрели и сравнили") 
     0 // return an integer exit code
