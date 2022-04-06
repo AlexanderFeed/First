@@ -155,12 +155,5 @@ let main argv =
     let Binya = BinListDocCollection(mnogo)
     let Set = SetDocCollection(mnogo)
     let watch = new Stopwatch()
-    Mass.searchDoc pass1
-    watch.Reset()
-    List.searchDoc pass1
-    watch.Reset()
-    Binya.searchDoc pass1
-    watch.Reset()
-    Set.searchDoc pass1
-    watch.Reset()
+    Time watch Mass.searchDoc pass1
     0 // return an integer exit code
