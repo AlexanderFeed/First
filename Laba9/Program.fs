@@ -21,6 +21,7 @@ let Umnoj _ = MessageBox.Show(string(int(Edit1.Text) * (int(Edit2.Text))),"Пл�
 let _ = button1.Click.Add(Umnoj)
 let opForm1 _ = do Form1.ShowDialog()
 let _ = miForm1.Click.Add(opForm1)
+
 [<EntryPoint>]
 let main argv =
     do Application.Run(form)
