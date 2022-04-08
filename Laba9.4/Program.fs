@@ -71,6 +71,7 @@ button.Click.AddHandler(fun _ _ ->
                                    |> ignore)
 //Добавление элементов на форму
 form.Controls.Add(button)
+
 form.Controls.Add(label2)
 form.Controls.Add(TextBox)
 form.Controls.Add(TextBox1)
