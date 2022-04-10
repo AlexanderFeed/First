@@ -62,7 +62,9 @@ let main argv =
              let list2 = Seq.toList str1
              let bol = (list1 = list2)
              Console.WriteLine(bol) 
-    |2 -> Console.WriteLine(probel str)
+    |2 ->
+        let str = Seq.toList str
+        Console.WriteLine(List.filter (fun x -> x=' ') str)
     |3 ->
             Console.WriteLine(metod3 str)
     |_ -> Console.WriteLine("Нет такого метода")
