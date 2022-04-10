@@ -71,7 +71,7 @@ let main argv =
     let a = Console.ReadLine() |> Int32.Parse
     match a with
     |1 -> 
-          let number, finish1 = List.unzip (List.sort (List.zip (razn_sr list) list))
+          let finish1 = List.sortBy (fun (s:string) -> s.Length) (razn_sr list)
           writeList finish1
     |2 ->
         let number, finish2 = List.unzip (List.sort (List.zip (troika list) list))
