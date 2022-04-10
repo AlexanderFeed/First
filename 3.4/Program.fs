@@ -1,46 +1,6 @@
 ﻿// Learn more about F# at http://fsharp.org
 // 4 11 15
 open System
-
-let probel str = 
-    let rec probel1 (str:string) n kolvo =
-        match n with
-        |(-1) -> kolvo
-        |_ ->
-                if str.[n] = ' ' then 
-                                        let new_kolvo = kolvo+1
-                                        probel1 str (n-1) new_kolvo
-                else probel1 str (n-1) kolvo
-    probel1 str ((String.length str)-1) 1
-
-
-let proxod str elem = 
-    let rec proxod1 (str:string) n elem bol =
-        match n with
-        |(-1) -> bol
-        |_ ->
-                if elem = str.[n] && bol = true then
-                                                    false
-                else if elem = str.[n] && bol = false then 
-                                                            let new_bol = true
-                                                            proxod1 str (n-1) elem new_bol
-                        else proxod1 str (n-1) elem bol
-    proxod1 str ((String.length str)-1) elem false
-let metod3 str = 
-    let rec inmetod3 (str:string) n kolvo =
-        match n with
-        |(-1) -> kolvo
-        |_ -> 
-                if proxod str str.[n] then 
-                                            let new_kolvo = kolvo+1
-                                            inmetod3 str (n-1) new_kolvo
-                else 
-                        let new_kolvo = kolvo+1
-                        let new_str = String.filter (fun x -> x<>str.[n]) str
-                        let otnimaemoe_str = String.filter (fun x -> x=str.[n]) str
-                        inmetod3 new_str (n-(String.length otnimaemoe_str)) new_kolvo
-    inmetod3 str ((String.length str)-1) 0
-        
 [<EntryPoint>]
 let main argv =
     Console.WriteLine("Введите строку.")
@@ -64,9 +24,10 @@ let main argv =
              Console.WriteLine(bol) 
     |2 ->
         let str = Seq.toList str
-        Console.WriteLine(List.filter (fun x -> x=' ') str)
+        Console.WriteLine(List.length(List.filter (fun x -> x=' ') str)+1)
     |3 ->
-            Console.WriteLine(metod3 str)
+            let list = List.distinct(List.splitInto (String.length str) (Seq.toList str))
+            Console.WriteLine(List.length list)
     |_ -> Console.WriteLine("Нет такого метода")
             
             
